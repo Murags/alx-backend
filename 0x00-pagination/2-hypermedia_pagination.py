@@ -65,7 +65,7 @@ class Server:
         else:
             result["next_page"] = page + 1
 
-        result["total_pages"] = math.floor(total_pages)
+        result["total_pages"] = math.ciel(total_pages)
 
         return result
 
