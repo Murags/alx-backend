@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """class to add elements to the cache"""
+from typing import Any, Optional
+
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -10,7 +12,7 @@ class FIFOCache(BaseCaching):
         BaseCaching (_type_): _description_
     """
 
-    def put(self, key, item):
+    def put(self, key: Any, item: Any) -> None:
         """_summary_
 
         Args:
@@ -24,7 +26,7 @@ class FIFOCache(BaseCaching):
                 self.cache_data.pop(key_discard)
                 print("DISCARD {}".format(key_discard))
 
-    def get(self, key):
+    def get(self, key: Any) -> Optional[Any]:
         """_summary_
 
         Args:
