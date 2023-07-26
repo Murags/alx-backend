@@ -22,11 +22,12 @@ class LIFOCache(BaseCaching):
             item (_type_): _description_
         """
         if key and item:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS and self.cache_data.get(key) == None:
+            if len(self.cache_data) == BaseCaching.MAX_ITEMS and\
+                    self.cache_data.get(key) is None:
+
                 k, v = self.cache_data.popitem()
                 print("DISCARD {}".format(k))
             self.cache_data[key] = item
-
 
     def get(self, key):
         """_summary_

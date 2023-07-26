@@ -22,12 +22,13 @@ class MRUCache(BaseCaching):
             item (_type_): _description_
         """
         if key and item:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS and self.cache_data.get(key) == None:
+            if len(self.cache_data) == BaseCaching.MAX_ITEMS and\
+                    self.cache_data.get(key) is None:
+
                 key_to_remove = list(self.cache_data.keys())[-1]
                 self.cache_data.pop(key_to_remove)
                 print("DISCARD {}".format(key_to_remove))
             self.cache_data[key] = item
-
 
     def get(self, key):
         """_summary_
