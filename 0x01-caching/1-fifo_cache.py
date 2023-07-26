@@ -19,6 +19,8 @@ class FIFOCache(BaseCaching):
             key (_type_): _description_
             item (_type_): _description_
         """
+        if not key or not item:
+            return
         if key and item:
             self.cache_data[key] = item
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
