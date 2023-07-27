@@ -19,12 +19,11 @@ class FIFOCache(BaseCaching):
             key (_type_): _description_
             item (_type_): _description_
         """
-        if not key or not item:
-            return
+
         if key and item:
             self.cache_data[key] = item
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                key_discard = next(iter(self.cache_data))
+                key_discard = list(self.cache_data.keys())[0]
                 self.cache_data.pop(key_discard)
                 print("DISCARD {}".format(key_discard))
 
