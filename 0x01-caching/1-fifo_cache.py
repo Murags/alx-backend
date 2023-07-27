@@ -11,6 +11,11 @@ class FIFOCache(BaseCaching):
     Args:
         BaseCaching (_type_): _description_
     """
+    def __init__(self):
+        """
+        Initializes the class
+        """
+        super().__init__()
 
     def put(self, key: Any, item: Any) -> None:
         """_summary_
