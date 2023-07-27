@@ -9,10 +9,6 @@ class LIFOCache(BaseCaching):
     Args:
         BaseCaching (_type_): _description_
     """
-    def __init__(self):
-        """_summary_
-        """
-        super().__init__()
 
     def put(self, key, item):
         """_summary_
