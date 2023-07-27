@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """class to add elements to the cache"""
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class MRUCache(BaseCaching):
