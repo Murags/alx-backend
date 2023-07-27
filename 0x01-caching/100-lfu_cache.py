@@ -25,8 +25,11 @@ class LFUCache(BaseCaching):
             return
 
         # Check if the cache is full and if the key is new
-        if len(self.cache_data) == self.MAX_ITEMS and key not in self.cache_data:
-            least_used_key = min(self.usage_counter, key=self.usage_counter.get)
+        if len(self.cache_data) == self.MAX_ITEMS and\
+                key not in self.cache_data:
+
+            least_used_key = min(self.usage_counter,
+                                 key=self.usage_counter.get)
             self.cache_data.pop(least_used_key)
             self.usage_counter.pop(least_used_key)
             print(f'DISCARD: {least_used_key}')
@@ -47,5 +50,6 @@ class LFUCache(BaseCaching):
         if cache_item:
             # Update usage counter and sort it based on usage frequency
             self.usage_counter[key] = self.usage_counter.get(key) + 1
-            self.usage_counter = dict(sorted(self.usage_counter.items(), key=lambda x: (x[1], x[0])))
+            self.usage_counter = dict(sorted(self.usage_counter.items(),
+                                             key=lambda x: (x[1], x[0])))
         return cache_item
