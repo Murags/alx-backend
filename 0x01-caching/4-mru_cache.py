@@ -1,25 +1,22 @@
 #!/usr/bin/env python3
-"""class to add elements to the cache"""
+"""caching using MRU caching system"""
 from base_caching import BaseCaching
 
 
 class MRUCache(BaseCaching):
-    """_summary_
-
-    Args:
-        BaseCaching (_type_): _description_
+    """
+    A caching class using MRU system
     """
     def __init__(self):
-        """_summary_
+        """
+        lass initialization
         """
         super().__init__()
 
     def put(self, key, item):
-        """_summary_
-
-        Args:
-            key (_type_): _description_
-            item (_type_): _description_
+        """
+        this adds elements into the cache and removes the first
+        item using MRU system
         """
         if not key or not item:
             return
@@ -33,13 +30,8 @@ class MRUCache(BaseCaching):
         self.cache_data[key] = item
 
     def get(self, key):
-        """_summary_
-
-        Args:
-            key (_type_): _description_
-
-        Returns:
-            _type_: _description_
+        """
+        retrieves elements from the cache based on the key given
         """
         value = self.cache_data.get(key)
         if value:
