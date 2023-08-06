@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """_summary_"""
 
-from flask import Flask, render_template
-from flask_babel import Babel, request
+from flask import Flask, render_template, request
+from flask_babel import Babel
 
 
 app = Flask(__name__)
@@ -23,6 +23,16 @@ class Config(object):
 app.config.from_object(Config)
 
 
+@babel.localeselector
+def get_locale() -> str:
+    """_summary_
+
+    Returns:
+        str: _description_
+    """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
 @app.route('/', strict_slashes=False)
 def home() -> str:
     """_summary_
@@ -32,15 +42,6 @@ def home() -> str:
     """
     return render_template("2-index.html")
 
-
-@babel.locale_selector
-def get_locale() -> str:
-    """_summary_
-
-    Returns:
-        str: _description_
-    """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == "__main__":
