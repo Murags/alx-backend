@@ -30,7 +30,7 @@ def home() -> str:
     Returns:
         str: _description_
     """
-    return render_template("2-index.html")
+    return render_template("3-index.html")
 
 
 @babel.locale_selector
