@@ -33,7 +33,7 @@ def home() -> str:
     return render_template("3-index.html")
 
 
-@babel.locale_selector
+@babel.localeselector
 def get_locale() -> str:
     """_summary_
 
