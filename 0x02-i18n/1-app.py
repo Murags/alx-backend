@@ -13,16 +13,25 @@ app = Flask(__name__)
 
 babel = Babel(app)
 
+
 class Config(object):
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'fr'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
+
 app.config.from_object(Config)
 
-@app.route('/')
-def home():
+
+@app.route('/', strict_slashes=False)
+def home() -> str:
+    """_summary_
+
+    Returns:
+        str: _description_
+    """
     return render_template("1-index.html")
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
