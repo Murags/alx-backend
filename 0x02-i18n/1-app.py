@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
-"""_summary_
-
-    Returns:
-        _type_: _description_
-"""
+"""_summary_"""
 
 from flask import Flask, render_template
 from flask_babel import Babel
 
 
 app = Flask(__name__)
-
 babel = Babel(app)
 
 
 class Config(object):
+    """_summary_
+
+    Args:
+        object (_type_): _description_
+    """
     LANGUAGES = ['en', 'fr']
-    BABEL_DEFAULT_LOCALE = 'fr'
+    BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
